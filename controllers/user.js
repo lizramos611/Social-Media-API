@@ -27,5 +27,24 @@ module.exports = {
         user.create(req.body)
         .then((user) => res.json((user))
         .catch((err) => res.status(500).json(err)))
+    },
+
+    addFriend(req, res) {
+user.findOneAndUpdate(
+    { _id: req.params.userId },
+    {username: req.body.username},
+    {email: req.body.email},
+    {new: true}
+
+).then((user) => {
+    if(!user){
+        console.log('Unable to add friend!')
     }
+    else {
+        console.log('friend added!')
+    }
+})
+    }
+
+
 }
