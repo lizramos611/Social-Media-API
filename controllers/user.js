@@ -1,14 +1,14 @@
-const { user, thought } = require('../models');
+const { User, Thought } = require('../models');
 module.exports = {
 
     getUsers(req, res) {
-        user.find()
+        User.find()
         .then((thought) => {
             res.json(thought)
         });
     },
     getOneUser(req, res) {
-        user.findOne({_id: req.params.userId})
+        User.findOne({_id: req.params.userId})
         .populate('thought')
         .populate('friends')
         .select('-__V')
@@ -24,13 +24,13 @@ module.exports = {
         })
     },
     createNewUser (req, res) {
-        user.create(req.body)
+        User.create(req.body)
         .then((user) => res.json((user))
         .catch((err) => res.status(500).json(err)))
     },
 
     addFriend(req, res) {
-user.findOneAndUpdate(
+User.findOneAndUpdate(
     { _id: req.params.userId },
     {username: req.body.username},
     {email: req.body.email},

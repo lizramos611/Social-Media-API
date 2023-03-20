@@ -1,7 +1,7 @@
-const {schema, model, types } = require('mongoose');
+const {Schema, model, types } = require('mongoose');
 const { stringify } = require('querystring');
 
-const userSchema = new schema({
+const userSchema = new Schema({
     username: {
         type: String,
         unique: true,
@@ -13,13 +13,13 @@ const userSchema = new schema({
         required: true,
         unique: true,
     },
-    thoughts: [
-        type: schema.types.objectID,
-        ref: 'thought',
-    ],
+    thoughts: [{
+        type: Schema.Types.ObjectID,
+        ref: 'Thought',
+    }],
     friends: [{
-        type: schema.types.onjectId,
-        ref: user
+        type: Schema.Types.ObjectId,
+        ref: 'User'
     }]
 });
 const user = model("user", userSchema);

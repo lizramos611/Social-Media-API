@@ -18,6 +18,8 @@
   },
   "homepage": "https://github.com/lizramos611/Social-Media-API#readme",
   "dependencies": {
-    "mongoose": "^7.0.2"
+    "express": "^4.18.2",
+    "mongoose": "^7.0.2",
+    "sequelize": "^6.29.3"
   }
 }
