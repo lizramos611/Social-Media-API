@@ -2,15 +2,15 @@ const {Schema, Types} = require('mongoose');
 
 const reactionSchema = new Schema ({
     reaction:{
-        type: String,
+        Types: String,
         required: true,
     },
     username: {
-        type: String, 
+        Types: String, 
         required: true,
     },
     createdAt: {
-        type: Date,
+        Types: Date,
         default: Date.now,
     }
 })
